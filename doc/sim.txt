@@ -50,7 +50,7 @@ was an itch that this plugin aims to scratch.
 ====================================================================
 Section 3: Mappings                                    *SimMappings*
 
-The sim plugin will remap * to activate the Sim command and then |hlsearch|.
+The Sim plugin will remap * to activate the Sim command and then |hlsearch|.
 
 The user is advised to have mapping to toggle or deactivate |hlsearch|.
 Example:
@@ -88,7 +88,7 @@ Section 5: Bugs                                        *SimBugs*
 No known bugs currently, but please submit bugs to:
 https://github.com/ironhouzi/vim-sim/issues
 
-Currently, the sim plugin does not take a [count].
+Currently, the Sim plugin does not take a [count].
 
 The # command (reverse *) is not implemented and will not be done, unless
 somebody issues a pull request.
