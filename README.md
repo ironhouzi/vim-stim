@@ -30,4 +30,4 @@ this plugin.
 vimrc, but the added functionality of spamming * to jump to the next match
 was an itch that this plugin aims to scratch.
 
-* Sim is extremely light with just ~30 lines of code.
+* Sim is extremely light, with just ~30 lines of code.
