@@ -35,19 +35,17 @@ The state will be reset by either of the following events occurs:
     2. The word under the cursor is different from the previous use of star-command.
 
 ====================================================================
-Section 2: Why use Sim?                                *WhySim*
+Section 2: Why use the Sim plugin?                     *WhySim*
 
-Q:  Why use the sim plugin?
-
-A:  Vim users who don't like to have |hlsearch| activated by default, often do
-    so because they are constantly searching to perform arbitrary jumps, or
-    using searches as |text-objects|. Having |hlsearch| activated will in
-    these cases clutter the buffer for each minor jump or modification.
-    Vim users who still want to have highlighted searches can do so by using
-    this plugin.
-    The behavior of not jumping on the first press was found in Steve Losh's
-    vimrc, but the added functionality of spamming * to jump to the next match
-    was an itch that this plugin aims to scratch.
+Vim users who don't like to have |hlsearch| activated by default, often do
+so because they are constantly searching to perform arbitrary jumps, or
+using searches as |text-objects|. Having |hlsearch| activated will in
+these cases clutter the buffer for each minor jump or modification.
+Vim users who still want to have highlighted searches can do so by using
+this plugin.
+The behavior of not jumping on the first press was found in Steve Losh's
+vimrc, but the added functionality of spamming * to jump to the next match
+was an itch that this plugin aims to scratch.
 
 ====================================================================
 Section 3: Mappings                                    *SimMappings*
