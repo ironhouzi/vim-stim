@@ -3,7 +3,7 @@ vim-sim
 
 Sim - Star Improved
 
-* Usage
+## Usage
 
 * Sim aims to improve the built in |star|-command with two adjustments:
 
@@ -17,7 +17,7 @@ Sim - Star Improved
 
     2. The word under the cursor is different from the previous use of star-command.
 
-* Why use Sim?
+## Why use Sim?
 
 Q:  Why use the sim plugin?
 
