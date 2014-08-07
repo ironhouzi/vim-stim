@@ -85,13 +85,13 @@ SOFTWARE.
 ====================================================================
 Section 5: Bugs                                        *SimBugs*
 
-No known bugs currently, but please submit bugs to:
-https://github.com/ironhouzi/vim-sim/issues
-
 Currently, the Sim plugin does not take a [count].
 
-The # command (reverse *) is not implemented and will not be done, unless
+The *#* command is not implemented and will not be done, unless
 somebody issues a pull request.
+
+Please submit bugs to:
+https://github.com/ironhouzi/vim-sim/issues
 
 ====================================================================
 Section 6: Contributing                                *SimContributing*
