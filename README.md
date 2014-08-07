@@ -1,11 +1,11 @@
-vim-sim
+vim-stim
 =======
 
-Sim - Star Improved
+StIm - Star Improved
 
 ## Usage
 
-* Sim aims to improve the built in star-command with two adjustments:
+* StIm aims to improve the built in star-command with two adjustments:
 
     1. Don't jump to the next match on the initial issuing of a star-command.
 
@@ -17,7 +17,7 @@ Sim - Star Improved
 
     2. The word under the cursor is different from the previous use of star-command.
 
-## Why use the Sim plugin?
+## Why use the StIm plugin?
 
 * Vim users who don't like to have hlsearch activated by default and use
 incsearch instead, often do so because they are constantly searching
@@ -30,4 +30,4 @@ searches can do so by using this plugin.
 vimrc, but the added functionality of spamming * to jump to the next match
 was an itch that this plugin aims to scratch.
 
-* Sim is extremely light, with just ~30 lines of code.
+* StIm is extremely light, with just ~30 lines of code.

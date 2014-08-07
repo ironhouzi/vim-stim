@@ -1,13 +1,13 @@
-" Sim - Star Improved
+" StIm - Star Improved
 " Maintainer:   Robin Skahjem-Eriksen <robinds@student.matnat.uio.no>
 " Version:      0.1
 
-if exists('g:loaded_sim_plugin')
+if exists('g:loaded_stim_plugin')
     finish
 endif
-let g:loaded_sim_plugin = 1
+let g:loaded_stim_plugin = 1
 
-function! Sim()
+function! StIm()
     let s:searchword = expand("<cword>")
 
     if !exists('b:virginstar')
@@ -38,4 +38,4 @@ function! Sim()
     let b:virginstar = 0
 endfunction
 
-execute "nnoremap <silent> * :call Sim()<CR>:set hlsearch<CR>"
+execute "nnoremap <silent> * :call StIm()<CR>:set hlsearch<CR>"

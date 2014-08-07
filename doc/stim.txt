@@ -1,4 +1,4 @@
-*sim.txt* Improved star command
+*stim.txt* Improved star command
 
  ____  _               ___                                        _  ~
 / ___|| |_ __ _ _ __  |_ _|_ __ ___  _ __  _ __ _____   _____  __| | ~
@@ -8,21 +8,21 @@
                                     |_|                              ~
 
 ====================================================================
-CONTENTS                                            *SimContents*
+CONTENTS                                            *StImContents*
 
-    1. Usage ................ |SimUsage|
-    2. Why use Sim? ......... |WhySim|
-    3. Mappings ............. |SimMappings|
-    4. License .............. |SimLicense|
-    5. Bugs ................. |SimBugs|
-    6. Contributing ......... |SimContributing|
-    7. Changelog ............ |SimChangelog|
-    8. Credits .............. |SimCredits|
+    1. Usage ................ |StImUsage|
+    2. Why use StIm? ........ |WhyStIm|
+    3. Mappings ............. |StImMappings|
+    4. License .............. |StImLicense|
+    5. Bugs ................. |StImBugs|
+    6. Contributing ......... |StImContributing|
+    7. Changelog ............ |StImChangelog|
+    8. Credits .............. |StImCredits|
 
 ====================================================================
-Section 1: Usage                                       *SimUsage*
+Section 1: Usage                                       *StImUsage*
 
-Sim aims to improve the built in |star|-command with two adjustments:
+StIm aims to improve the built in |star|-command with two adjustments:
 
     1. Don't jump to the next match on the initial issuing of a |star|-command.
 
@@ -35,7 +35,7 @@ The state will be reset by either of the following events occurs:
     2. The word under the cursor is different from the previous use of star-command.
 
 ====================================================================
-Section 2: Why use the Sim plugin?                     *WhySim*
+Section 2: Why use the StIm plugin?                    *WhyStIm*
 
 Vim users who don't like to have |hlsearch| activated by default, often do
 so because they are constantly searching to perform arbitrary jumps, or
@@ -48,9 +48,9 @@ vimrc, but the added functionality of spamming * to jump to the next match
 was an itch that this plugin aims to scratch.
 
 ====================================================================
-Section 3: Mappings                                    *SimMappings*
+Section 3: Mappings                                    *StImMappings*
 
-The Sim plugin will remap * to activate the Sim command and then |hlsearch|.
+The StIm plugin will remap * to activate the StIm command and then |hlsearch|.
 
 The user is advised to have mapping to toggle or deactivate |hlsearch|.
 Example:
@@ -58,7 +58,7 @@ Example:
 nnoremap <silent> <leader><space> :set hlsearch! hlsearch?<CR>:call clearmatches()<CR>
 
 ====================================================================
-Section 4: License                                     *SimLicense*
+Section 4: License                                     *StImLicense*
 
 The MIT License (MIT)
 
@@ -83,28 +83,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ====================================================================
-Section 5: Bugs                                        *SimBugs*
+Section 5: Bugs                                        *StImBugs*
 
-Currently, the Sim plugin does not take a [count].
+Currently, the StIm plugin does not take a [count].
 
 The *#* command is not implemented and will not be done, unless
 somebody issues a pull request.
 
 Please submit bugs to:
-https://github.com/ironhouzi/vim-sim/issues
+https://github.com/ironhouzi/vim-stim/issues
 
 ====================================================================
-Section 6: Contributing                                *SimContributing*
+Section 6: Contributing                                *StImContributing*
 
-https://github.com/ironhouzi/vim-sim/issues
+https://github.com/ironhouzi/vim-stim/issues
 
 ====================================================================
-Section 7: Changelog                                   *SimChangelog*
+Section 7: Changelog                                   *StImChangelog*
 
 v.0.1:  Added initial plugin.
 
 ====================================================================
-Section 8: Credits                                     *SimCredits*
+Section 8: Credits                                     *StImCredits*
 
 Bram Moolenaar.
 Steve Losh.
