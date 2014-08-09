@@ -32,15 +32,16 @@ function s:frwdWord()
     let @/ = "\\<". b:lastterm ."\\>"
 
     if b:virginstar
-        execute "normal! /\\<". b:lastterm ."\\>"
+        " Set the previous context mark on the word searched from.
+        call setpos("''", getcurpos())
     else
-        execute "normal! n"
+        call search("\\<". b:lastterm ."\\>")
     endif
 
     let b:virginstar = 0
 endfunction
 
-nnoremap <silent> <Plug>StImFrwdWord :call <SID>updateState()<CR>:call <SID>frwdWord()<CR>:set hlsearch<CR>
+nnoremap <silent> <Plug>StImFrwdWord :call <SID>updateState()<CR>:call <SID>frwdWord()<CR>:set hlsearch<CR>:let v:searchforward=1<CR>
 
 if !exists("g:stim_no_mappings") || ! g:stim_no_mappings
     nmap * <Plug>StImFrwdWord
