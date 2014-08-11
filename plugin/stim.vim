@@ -7,7 +7,7 @@ if exists('g:loaded_stim_plugin')
 endif
 let g:loaded_stim_plugin = 1
 
-function! StIm()
+function s:updateState()
     let s:searchword = expand("<cword>")
 
     if !exists('b:virginstar')
@@ -26,7 +26,9 @@ function! StIm()
         let b:virginstar = 1
         let b:lastterm = s:searchword
     endif
+endfunction
 
+function s:frwdWord()
     let @/ = "\\<". b:lastterm ."\\>"
 
     if b:virginstar
@@ -38,4 +40,10 @@ function! StIm()
     let b:virginstar = 0
 endfunction
 
-execute "nnoremap <silent> * :call StIm()<CR>:set hlsearch<CR>"
+nnoremap <silent> <Plug>StImFrwdWord :call <SID>updateState()<CR>:call <SID>frwdWord()<CR>:set hlsearch<CR>
+
+if !exists("g:stim_no_mappings") || ! g:stim_no_mappings
+    nmap * <Plug>StImFrwdWord
+endif
+
+" vim:set ft=vim sw=4 sts=4 et:
