@@ -50,20 +50,12 @@ was an itch that this plugin aims to scratch.
 ====================================================================
 Section 3: Mappings                                    *StImMappings*
 
-The StIm plugin remaps *, #, g*, and g# to do the following, in order:
-
-    1. Call the script's updateState command,
-
-    2. Perform the appropriate jump (or not, depending on the state),
-
-    3. Set |hlsearch|,
-
-    4. And set |v:searchforward| appropriately.
+The StIm plugin will remap * to activate the StIm command and then |hlsearch|.
 
 The user is advised to have mapping to toggle or deactivate |hlsearch|.
 Example:
 
-nnoremap <silent> <leader><space> :set hlsearch! hlsearch?<CR>
+nnoremap <silent> <leader><space> :set hlsearch! hlsearch?<CR>:call clearmatches()<CR>
 
 ====================================================================
 Section 4: License                                     *StImLicense*
@@ -94,6 +86,9 @@ SOFTWARE.
 Section 5: Bugs                                        *StImBugs*
 
 Currently, the StIm plugin does not take a [count].
+
+The *#* command is not implemented and will not be done, unless
+somebody issues a pull request.
 
 Please submit bugs to:
 https://github.com/ironhouzi/vim-stim/issues
