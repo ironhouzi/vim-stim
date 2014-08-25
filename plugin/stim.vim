@@ -7,7 +7,7 @@ if exists('g:loaded_stim_plugin')
 endif
 let g:loaded_stim_plugin = 1
 
-function! StIm()
+function s:updateState()
     let s:searchword = expand("<cword>")
 
     if !exists('b:virginstar')
@@ -26,16 +26,67 @@ function! StIm()
         let b:virginstar = 1
         let b:lastterm = s:searchword
     endif
+endfunction
 
+function s:frwdWord()
     let @/ = "\\<". b:lastterm ."\\>"
 
     if b:virginstar
-        execute "normal! /\\<". b:lastterm ."\\>"
+        " Set the previous context mark on the word searched from.
+        call setpos("''", getcurpos())
     else
-        execute "normal! n"
+        call search("\\<". b:lastterm ."\\>")
     endif
 
     let b:virginstar = 0
 endfunction
 
-execute "nnoremap <silent> * :call StIm()<CR>:set hlsearch<CR>"
+function s:bkwdWord()
+    let @/ = "\\<". b:lastterm ."\\>"
+
+    if b:virginstar
+        call setpos("''", getcurpos())
+    else
+        call search("\\<". b:lastterm ."\\>", "b")
+    endif
+
+    let b:virginstar = 0
+endfunction
+
+function s:frwdPrtl()
+    let @/ = b:lastterm
+
+    if b:virginstar
+        call setpos("''", getcurpos())
+    else
+        call search(b:lastterm)
+    endif
+
+    let b:virginstar = 0
+endfunction
+
+function s:bkwdPrtl()
+    let @/ = b:lastterm
+
+    if b:virginstar
+        call setpos("''", getcurpos())
+    else
+        call search(b:lastterm, "b")
+    endif
+
+    let b:virginstar = 0
+endfunction
+
+nnoremap <silent> <Plug>StImFrwdWord :call <SID>updateState()<CR>:call <SID>frwdWord()<CR>:set hlsearch<CR>:let v:searchforward=1<CR>
+nnoremap <silent> <Plug>StImBkwdWord :call <SID>updateState()<CR>:call <SID>bkwdWord()<CR>:set hlsearch<CR>:let v:searchforward=0<CR>
+nnoremap <silent> <Plug>StImFrwdPrtl :call <SID>updateState()<CR>:call <SID>frwdPrtl()<CR>:set hlsearch<CR>:let v:searchforward=1<CR>
+nnoremap <silent> <Plug>StImBkwdPrtl :call <SID>updateState()<CR>:call <SID>bkwdPrtl()<CR>:set hlsearch<CR>:let v:searchforward=0<CR>
+
+if !exists("g:stim_no_mappings") || ! g:stim_no_mappings
+    nmap * <Plug>StImFrwdWord
+    nmap # <Plug>StImBkwdWord
+    nmap g* <Plug>StImFrwdPrtl
+    nmap g# <Plug>StImBkwdPrtl
+endif
+
+" vim:set ft=vim sw=4 sts=4 et:
