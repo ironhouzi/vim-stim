@@ -7,24 +7,26 @@
 |____/ \__\__,_|_|    |___|_| |_| |_| .__/|_|  \___/ \_/ \___|\__,_| ~
                                     |_|                              ~
 
-====================================================================
+==============================================================================
 CONTENTS                                            *StImContents*
 
     1. Usage ................ |StImUsage|
     2. Why use StIm? ........ |WhyStIm|
     3. Mappings ............. |StImMappings|
-    4. License .............. |StImLicense|
-    5. Bugs ................. |StImBugs|
-    6. Contributing ......... |StImContributing|
-    7. Changelog ............ |StImChangelog|
-    8. Credits .............. |StImCredits|
+    4. Variables ............ |StImVariables|
+    5. License .............. |StImLicense|
+    6. Bugs ................. |StImBugs|
+    7. Contributing ......... |StImContributing|
+    8. Changelog ............ |StImChangelog|
+    9. Credits .............. |StImCredits|
 
-====================================================================
+==============================================================================
 Section 1: Usage                                       *StImUsage*
 
 StIm aims to improve the built in |star|-command with two adjustments:
 
-    1. Don't jump to the next match on the initial issuing of a |star|-command.
+    1. Don't jump to the next match on the initial issuing of a
+       |star|-command.
 
     2. All consecutive spamming of * will jump to the next match.
 
@@ -32,9 +34,10 @@ The state will be reset by either of the following events occurs:
 
     1. User disables |hlsearch|.
 
-    2. The word under the cursor is different from the previous use of star-command.
+    2. The word under the cursor is different from the previous use of
+       star-command.
 
-====================================================================
+==============================================================================
 Section 2: Why use the StIm plugin?                    *WhyStIm*
 
 Vim users who don't like to have |hlsearch| activated by default, often do
@@ -47,18 +50,31 @@ The behavior of not jumping on the first press was found in Steve Losh's
 vimrc, but the added functionality of spamming * to jump to the next match
 was an itch that this plugin aims to scratch.
 
-====================================================================
+==============================================================================
 Section 3: Mappings                                    *StImMappings*
 
-The StIm plugin will remap * to activate the StIm command and then |hlsearch|.
+The StIm plugin will remap * and g* to activate the StIm command and then
+|hlsearch|.
 
 The user is advised to have mapping to toggle or deactivate |hlsearch|.
 Example:
 
 nnoremap <silent> <leader><space> :set hlsearch! hlsearch?<CR>:call clearmatches()<CR>
 
-====================================================================
-Section 4: License                                     *StImLicense*
+or
+
+nnoremap <leader>/ :let b:stim_virginstar=1<CR>:nohl<CR>
+
+==============================================================================
+Section 4: Variables                                   *StImVariables*
+
+b:stim_virginstar               *b:stim_virginstar*
+    StIm sets it to 0 everytime after StIm's * or g* bindings are used.
+    Controls whether StIm will attempt to jump to the next search or not next
+    time * or g* is pressed.
+
+==============================================================================
+Section 5: License                                     *StImLicense*
 
 The MIT License (MIT)
 
@@ -82,8 +98,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-====================================================================
-Section 5: Bugs                                        *StImBugs*
+==============================================================================
+Section 6: Bugs                                        *StImBugs*
 
 Currently, the StIm plugin does not take a [count].
 
@@ -93,18 +109,18 @@ somebody issues a pull request.
 Please submit bugs to:
 https://github.com/ironhouzi/vim-stim/issues
 
-====================================================================
-Section 6: Contributing                                *StImContributing*
+==============================================================================
+Section 7: Contributing                                *StImContributing*
 
 https://github.com/ironhouzi/vim-stim/issues
 
-====================================================================
-Section 7: Changelog                                   *StImChangelog*
+==============================================================================
+Section 8: Changelog                                   *StImChangelog*
 
 v.0.1:  Added initial plugin.
 
-====================================================================
-Section 8: Credits                                     *StImCredits*
+==============================================================================
+Section 9: Credits                                     *StImCredits*
 
 Bram Moolenaar.
 Steve Losh.
