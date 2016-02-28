@@ -7,5 +7,7 @@ StImCredits	stim.txt	/*StImCredits*
 StImLicense	stim.txt	/*StImLicense*
 StImMappings	stim.txt	/*StImMappings*
 StImUsage	stim.txt	/*StImUsage*
+StImVariables	stim.txt	/*StImVariables*
 WhyStIm	stim.txt	/*WhyStIm*
+b:stim_virginstar	stim.txt	/*b:stim_virginstar*
 stim.txt	stim.txt	/*stim.txt*
