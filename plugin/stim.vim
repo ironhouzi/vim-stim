@@ -7,35 +7,37 @@ if exists('g:loaded_stim_plugin')
 endif
 let g:loaded_stim_plugin = 1
 
-function! StIm()
-    let s:searchword = expand("<cword>")
+function! StIm(opts)
+    let searchword = expand("<cword>")
 
-    if !exists('b:virginstar')
-        let b:virginstar = 1
+    if !exists('b:stim_virginstar')
+        let b:stim_virginstar = 1
     endif
 
-    if !exists('b:lastterm')
-        let b:lastterm = s:searchword
+    if !exists('b:stim_lastterm')
+        let b:stim_lastterm = searchword
     endif
 
-    if !&hlsearch
-        let b:virginstar = 1
-    endif
+    let opts = split(a:opts, '\zs')
 
-    if b:lastterm != s:searchword
-        let b:virginstar = 1
-        let b:lastterm = s:searchword
-    endif
-
-    let @/ = "\\<". b:lastterm ."\\>"
-
-    if b:virginstar
-        execute "normal! /\\<". b:lastterm ."\\>"
+    if count(opts, 'g')
+        let @/ = searchword
     else
+        let @/ = "\\<". searchword ."\\>"
+    endif
+
+    if !&hlsearch || b:stim_lastterm != @/
+        let b:stim_virginstar = 1
+    endif
+
+    let b:stim_lastterm = @/
+
+    if !b:stim_virginstar
         execute "normal! n"
     endif
 
-    let b:virginstar = 0
+    let b:stim_virginstar = 0
 endfunction
 
-execute "nnoremap <silent> * :call StIm()<CR>:set hlsearch<CR>"
+nnoremap <silent> *  :call StIm('')<CR>:set hlsearch<CR>
+nnoremap <silent> g* :call StIm('g')<CR>:set hlsearch<CR>
