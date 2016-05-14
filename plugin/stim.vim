@@ -14,29 +14,27 @@ function! StIm(opts)
         let b:stim_virginstar = 1
     endif
 
-    if !exists('b:stim_lastterm')
-        let b:stim_lastterm = searchword
-    endif
-
     let opts = split(a:opts, '\zs')
 
     if count(opts, 'g')
-        let @/ = searchword
+        let term = searchword
     else
-        let @/ = "\\<". searchword ."\\>"
+        let term = "\\<". searchword ."\\>"
     endif
 
-    if !&hlsearch || b:stim_lastterm != @/
+    if !&hlsearch || term != @/
         let b:stim_virginstar = 1
     endif
 
-    let b:stim_lastterm = @/
-
-    if !b:stim_virginstar
+    if b:stim_virginstar
+        " Change current search term.
+        let @/ = term
+        " Update search history.
+        execute "normal! /". term
+        let b:stim_virginstar = 0
+    else
         execute "normal! n"
     endif
-
-    let b:stim_virginstar = 0
 endfunction
 
 nnoremap <silent> *  :call StIm('')<CR>:set hlsearch<CR>
