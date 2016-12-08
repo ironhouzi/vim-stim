@@ -7,7 +7,7 @@ StIm - Star Improved
 
 * StIm aims to improve the built in star-command with two adjustments:
 
-    1. Don't jump to the next match on the initial issuing of a star-command.
+    1. Highlight word, but don't jump to the next match on the initial issuing of a star-command.
 
     2. All consecutive spamming of * will jump to the next match.
 
