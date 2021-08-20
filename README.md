@@ -3,6 +3,8 @@ vim-stim
 
 StIm - Star Improved
 
+For Lua implementation use: [starlite-nvim](https://github.com/ironhouzi/starlite-nvim).
+
 ## Usage
 
 * StIm aims to improve the built in star-command with two adjustments:
